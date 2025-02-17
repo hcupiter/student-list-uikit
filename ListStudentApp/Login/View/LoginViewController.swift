@@ -13,14 +13,17 @@ protocol LoginViewControllerProtocol: AnyObject {
 
 class LoginViewController: UIViewController {
     private lazy var loginView = LoginView(vc: self)
-    var session: SessionViewModel?
+    private var session: SessionViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setup()
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        loginView.resetView()
+    }
 }
 
 extension LoginViewController: SessionViewModelDelegate {
@@ -42,16 +45,20 @@ extension LoginViewController: LoginViewControllerProtocol {
             delegate: self
         )
         
-        debugPrint(result)
+        if result {
+            self.navigationController?.pushViewController(
+                StudentListViewController(),
+                animated: true
+            )
+        }
     }
 }
 
 private extension LoginViewController {
     func setup() {
         self.view.backgroundColor = .white
-        self.session = .init()
         self.view.addSubview(loginView)
-        
+        self.session = .init()
         setConstraint()
     }
     

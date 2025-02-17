@@ -11,7 +11,7 @@ protocol SessionViewModelDelegate: AnyObject {
     func updateErrorMessage(_ error: String)
 }
 
-protocol SessionViewModelProtocol {
+protocol SessionViewModelProtocol: AnyObject {
     func validateLoginCredential(
         username: String,
         password: String,

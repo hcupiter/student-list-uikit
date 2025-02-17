@@ -87,7 +87,7 @@ class LoginView: UIView {
         return view
     }()
     
-    weak var vc: LoginViewControllerProtocol?
+    private weak var vc: LoginViewControllerProtocol?
     
     init(vc: LoginViewControllerProtocol) {
         super.init(frame: .zero)
@@ -104,6 +104,11 @@ class LoginView: UIView {
 extension LoginView {
     func updateErrorMessage(_ error: String) {
         errorMessage.text = error
+    }
+    
+    func resetView() {
+        self.usernameTextField.text = nil
+        self.passwordTextField.text = nil
     }
     
     @objc private func loginButtonTapped() {
