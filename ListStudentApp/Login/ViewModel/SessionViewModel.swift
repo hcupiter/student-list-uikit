@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SessionViewModelDelegate {
+protocol SessionViewModelDelegate: AnyObject {
     func updateErrorMessage(_ error: String)
 }
 

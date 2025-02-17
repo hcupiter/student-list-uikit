@@ -87,7 +87,7 @@ class LoginView: UIView {
         return view
     }()
     
-    var vc: LoginViewControllerProtocol?
+    weak var vc: LoginViewControllerProtocol?
     
     init(vc: LoginViewControllerProtocol) {
         super.init(frame: .zero)

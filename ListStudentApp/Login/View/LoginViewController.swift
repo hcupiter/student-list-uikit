@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LoginViewControllerProtocol {
+protocol LoginViewControllerProtocol: AnyObject {
     func validateData(username: String, password: String)
 }
 
